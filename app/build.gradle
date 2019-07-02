@@ -1,0 +1,89 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion build_versions.target_sdk
+    buildToolsVersion build_versions.build_tools
+
+
+    defaultConfig {
+        applicationId "longhoang.test.teko"
+        minSdkVersion build_versions.min_sdk
+        targetSdkVersion build_versions.target_sdk
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        multiDexEnabled true
+        renderscriptTargetApi build_versions.target_sd
+        renderscriptSupportModeEnabled true
+    }
+    buildTypes {
+        debug {
+            buildConfigField("String", "BASE_URL", "\"https://online-manga.herokuapp.com\"")
+        }
+        release {
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            buildConfigField("String", "BASE_URL", "\"https://online-manga.herokuapp.com\"")
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    dataBinding {
+        enabled = true
+    }
+}
+
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    //supportLib
+    implementation deps.support.app_compat
+    implementation deps.support.annotations
+    implementation deps.support.v4
+    implementation deps.support.recyclerview
+    implementation deps.support.cardview
+    implementation deps.support.design
+    implementation deps.support.constraintlayout
+    implementation deps.support.paging
+    implementation deps.support.custom_tab
+    implementation deps.support.legacy
+    implementation deps.multidex.runtime
+    //di
+    implementation deps.dagger.runtime
+    implementation deps.dagger.android
+    implementation deps.dagger.android_support
+    annotationProcessor deps.dagger.android_support_compiler
+    annotationProcessor deps.dagger.compiler
+
+    // RxJava
+    implementation deps.rx.java2
+    implementation deps.rx.android
+    // FastAndroidNetworking
+    implementation deps.fan.runtime
+    implementation deps.glide.runtime
+    //arch-comp LifeCycles, LiveData, and ViewModel
+    implementation deps.lifecycle.runtime
+    implementation deps.lifecycle.extensions
+    implementation deps.lifecycle.java8
+    implementation deps.lifecycle.reactstreams
+    annotationProcessor deps.lifecycle.compiler
+
+    //arch-comp Room
+    implementation deps.room.runtime
+    implementation deps.room.rxjava2
+    annotationProcessor deps.room.compiler
+
+    //font
+    implementation deps.font.calligraphyVersion
+    //gms-play-service
+    implementation deps.play_service
+    //test
+    testImplementation 'junit:junit:4.12'
+    testImplementation deps.arch_core.testing
+    testImplementation deps.room.testing
+
+    //Observable Scroll view
+    implementation 'com.github.ksoichiro:android-observablescrollview:1.6.0'
+    implementation 'de.hdodenhof:circleimageview:1.3.0'
+}
