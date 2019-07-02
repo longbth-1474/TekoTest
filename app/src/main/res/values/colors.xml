@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black_effective">#2a2a2a</color>
+    <color name="colorPrimaryDark">#4D000000</color>
+    <color name="color_picton_blue">#50B9F1</color>
+    <color name="color_alto">#D8D8D8</color>
+    <color name="color_alice_blue">#F7F8F9</color>
+    <color name="color_malibu">#74C8F4</color>
+    <color name="color_login_google">#4285F4</color>
+    <color name="color_login_line">#47CF00</color>
+    <color name="color_login_facebook">#4065B4</color>
+    <color name="color_login_twitter">#00ABF0</color>
+    <color name="color_blue_100">#E0F3FD</color>
+    <color name="color_blue_500">#F221B1F3</color>
+    <color name="color_gray_45">#707070</color>
+    <color name="color_gray_100">#B2B2B2</color>
+    <color name="color_cyan_62">#3EC2D1</color>
+    <color name="color_cyan_80">#50B9F1</color>
+    <color name="color_cyan_129">#81CCF4</color>
+    <color name="color_cyan_134">#86CFF6</color>
+    <color name="colorPrimary">#60C0F2</color>
+    <color name="colorAccent">#60C0F2</color>
+    <color name="color_white">#ffffff</color>
+    <color name="color_bg_feed">#F3FAFE</color>
+    <color name="picton_blue">#50B9F1</color>
+    <color name="gallery">#EDEBEB</color>
+    <color name="red">#EF0B0B</color>
+    <color name="green">#00BD00</color>
+    <color name="dove_gray">#707070</color>
+    <color name="color_porcelain">#ECF0F2</color>
+    <color name="color_dusty_gray">#959595</color>
+    <color name="color_cerulean">#108CCF</color>
+    <color name="color_tropical_blue">#C6E7F6</color>
+    <color name="color_wild_sand">#F5F5F5</color>
+    <color name="color_gray_50">#806D6D6D</color>
+    <color name="color_black_30">#4D000000</color>
+    <color name="color_white_60">#9AFFFFFF</color>
+    <color name="color_shadows">#29000000</color>
+    <color name="color_cornflower_blue">#4F5C89</color>
+    <color name="color_material_500">#ECF0F2</color>
+    <color name="color_alto_145">#D1D1D1</color>
+    <color name="color_alabastersolid">#FAFAFA</color>
+
+    <color name="color_underline">#eeeeee</color>
+    <color name="color_bg">#eeeeee</color>
+</resources>
