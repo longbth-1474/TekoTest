@@ -11,6 +11,8 @@ import com.google.android.material.textfield.TextInputLayout;
 
 import androidx.cardview.widget.CardView;
 import androidx.databinding.BindingAdapter;
+import longhoang.test.teko.R;
+import longhoang.test.teko.data.model.api.Product;
 
 /**
  * Created by Cong Nguyen on 2/19/19.
@@ -21,6 +23,15 @@ public final class BindingUtils {
     public static void setImageUrl(ImageView imageView, String url) {
         Context context = imageView.getContext();
         Glide.with(context).load(url).into(imageView);
+    }
+
+    @BindingAdapter("imageProduct")
+    public static void setImageProduct(ImageView imageView, Product product) {
+        Context context = imageView.getContext();
+        Glide.with(context)
+                .load(product.getImages().size() > 0 ? product.getImages().get(0).getUrl() : "")
+                .placeholder(R.drawable.default_image)
+                .into(imageView);
     }
 
     @BindingAdapter("colorSNS")
