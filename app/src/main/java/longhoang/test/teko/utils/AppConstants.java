@@ -9,15 +9,13 @@ public class AppConstants {
     public static final String TIMESTAMP_FORMAT = "yyyyMMdd_HHmmss";
     public static final String DB_NAME = "bAnk.db";
     public static final String REGEX_VALIDATE_PASSWORD = "^(?=.*[0-9])(?=.*[A-Z])(?=" +
-        ".*[@#$%^&+=!])(?=\\S+$).{4,}$";
+            ".*[@#$%^&+=!])(?=\\S+$).{4,}$";
     public static final Pattern PATTERN_PASSWORD = Pattern.compile(REGEX_VALIDATE_PASSWORD);
-    public static final String IS_FIRST_LOGGED = "is_first_logged";
-    public static final String IS_FIRST_OPEN = "is_first_open";
-    public static final String IS_LOGGED = "is_logged";
-    public static final int KEY_DIALOG_FRAGMENT_DIS_LIKE = 1;
-    public static final String FEED_LIKE_STATUS = "status";
-    public static final String ACTION_LIKE= "optin";
-    public static final String ACTION_DISLIKE= "optout";
-    public static final String ACTION_UNREAD= "unread";
 
+    public static final String CHANNEL = "channel";
+    public static final String VISITOR_ID = "visitorId";
+    public static final String QUERY = "q";
+    public static final String TERMINAL = "terminal";
+    public static final long TIMEOUT = 60;
+    public static final String SKU = "sku";
 }

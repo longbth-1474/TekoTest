@@ -5,9 +5,10 @@ import androidx.lifecycle.ViewModelProvider;
 import dagger.Binds;
 import dagger.Module;
 import dagger.multibindings.IntoMap;
-import longhoang.test.teko.MainViewModel;
+import longhoang.test.teko.screen.activity.MainViewModel;
 import longhoang.test.teko.di.TekoViewModelFactory;
 import longhoang.test.teko.di.ViewModelKey;
+import longhoang.test.teko.screen.fragment.screen_search.SearchViewModel;
 
 @Module
 public abstract class ViewModelModule {
@@ -17,4 +18,12 @@ public abstract class ViewModelModule {
     @IntoMap
     @ViewModelKey(MainViewModel.class)
     abstract ViewModel bindMainViewModel(MainViewModel viewModel);
+    @Binds
+    @IntoMap
+    @ViewModelKey(SearchViewModel.class)
+    abstract ViewModel bindSearchViewModel(SearchViewModel viewModel);
+    @Binds
+    @IntoMap
+    @ViewModelKey(SearchViewModel.class)
+    abstract ViewModel bind(SearchViewModel viewModel);
 }

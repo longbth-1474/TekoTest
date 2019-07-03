@@ -18,12 +18,12 @@ android {
     }
     buildTypes {
         debug {
-            buildConfigField("String", "BASE_URL", "\"https://online-manga.herokuapp.com\"")
+            buildConfigField("String", "BASE_URL", "\"https://listing-stg.teko.vn/api\"")
         }
         release {
             minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-            buildConfigField("String", "BASE_URL", "\"https://online-manga.herokuapp.com\"")
+            buildConfigField("String", "BASE_URL", "\"https://listing-stg.teko.vn/api\"")
         }
     }
     compileOptions {
@@ -53,6 +53,7 @@ dependencies {
     implementation deps.dagger.runtime
     implementation deps.dagger.android
     implementation deps.dagger.android_support
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0-beta01'
     annotationProcessor deps.dagger.android_support_compiler
     annotationProcessor deps.dagger.compiler
 

@@ -18,7 +18,9 @@ package longhoang.test.teko.data.remote;
 import longhoang.test.teko.BuildConfig;
 
 public final class TekoApiEndPoint {
-    public static final String ENDPOINT_BLOG = BuildConfig.BASE_URL;
+    public static final String ENDPOINT_BASE_URL = BuildConfig.BASE_URL;
+    public static final String ENDPOINT_TEKO_SEARCH = BuildConfig.BASE_URL + "/search/?channel={channel}&visitorId={visitorId}&q={q}&terminal={terminal}";
+    public static final String ENDPOINT_TEKO_DETAIL = BuildConfig.BASE_URL + "products/{product_sku}";
 
     private TekoApiEndPoint() {
         // This class is not publicly instantiable
