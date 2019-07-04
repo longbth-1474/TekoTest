@@ -1,12 +1,12 @@
 <component name="libraryTable">
   <library name="Gradle: androidx.databinding:databinding-adapters:3.2.1@aar">
     <CLASSES>
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/databinding-adapters-3.2.1.aar/633cd737ecf2f63ea07f3f81f8daad25/res" />
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/databinding-adapters-3.2.1.aar/633cd737ecf2f63ea07f3f81f8daad25/jars/classes.jar!/" />
+      <root url="file://$PROJECT_DIR$/../.gradle/caches/transforms-1/files-1.1/databinding-adapters-3.2.1.aar/fcf044b29633dea68196497b625e738d/res" />
+      <root url="jar://$PROJECT_DIR$/../.gradle/caches/transforms-1/files-1.1/databinding-adapters-3.2.1.aar/fcf044b29633dea68196497b625e738d/jars/classes.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES>
-      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/androidx.databinding/databinding-adapters/3.2.1/7c3108563e35b5b49dca9ba073a22e7ffcd42958/databinding-adapters-3.2.1-sources.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../.gradle/caches/modules-2/files-2.1/androidx.databinding/databinding-adapters/3.2.1/7c3108563e35b5b49dca9ba073a22e7ffcd42958/databinding-adapters-3.2.1-sources.jar!/" />
     </SOURCES>
   </library>
 </component>

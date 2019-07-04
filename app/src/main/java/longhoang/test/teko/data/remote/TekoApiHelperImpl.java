@@ -7,6 +7,7 @@ import javax.inject.Singleton;
 
 import io.reactivex.Single;
 import longhoang.test.teko.data.model.api.ProductSearch;
+import longhoang.test.teko.data.model.api.detail.ProductDetail;
 import longhoang.test.teko.utils.AppConstants;
 
 /**
@@ -26,5 +27,12 @@ public class TekoApiHelperImpl implements TekoApiHelper {
                 .addPathParameter(AppConstants.QUERY, q)
                 .addPathParameter(AppConstants.TERMINAL, terminal)
                 .build().getObjectSingle(ProductSearch.class);
+    }
+
+    @Override
+    public Single<ProductDetail> getDetailProduct(String sku) {
+        return Rx2AndroidNetworking.get(TekoApiEndPoint.ENDPOINT_TEKO_DETAIL)
+                .addPathParameter(AppConstants.SKU, sku)
+                .build().getObjectSingle(ProductDetail.class);
     }
 }

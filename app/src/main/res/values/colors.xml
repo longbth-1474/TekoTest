@@ -45,4 +45,5 @@
     <color name="color_bg">#eeeeee</color>
     <color name="color_text">#8f9598</color>
     <color name="color_toolbar_search">#df2020</color>
+    <color name="color_tomato">#ea341f</color>
 </resources>

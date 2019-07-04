@@ -5,18 +5,21 @@ import android.graphics.Color;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.google.android.material.textfield.TextInputLayout;
 
 import androidx.cardview.widget.CardView;
 import androidx.databinding.BindingAdapter;
+
+import java.text.DecimalFormat;
+import java.text.DecimalFormatSymbols;
+import java.util.Locale;
+
 import longhoang.test.teko.R;
 import longhoang.test.teko.data.model.api.Product;
 
-/**
- * Created by Cong Nguyen on 2/19/19.
- */
 public final class BindingUtils {
 
     @BindingAdapter("imageUrl")
@@ -29,7 +32,7 @@ public final class BindingUtils {
     public static void setImageProduct(ImageView imageView, Product product) {
         Context context = imageView.getContext();
         Glide.with(context)
-                .load(product.getImages().size() > 0 ? product.getImages().get(0).getUrl() : "")
+                .load(product.getImages().size() > 0 ? product.getImages().get(0).getUrl() : "https://cdn.zeplin.io/5cff19421786a65d32d70edd/assets/13772DB0-4A99-4C74-A603-B84727E4B752.png")
                 .placeholder(R.drawable.default_image)
                 .into(imageView);
     }
@@ -60,6 +63,22 @@ public final class BindingUtils {
             cardView.setCardBackgroundColor(Color.parseColor("#50B9F1"));
         } else {
             cardView.setCardBackgroundColor(Color.WHITE);
+        }
+    }
+
+    @BindingAdapter("price")
+    public static void setTotalPrice(TextView textView, String price) {
+        long balance = Long.parseLong(price);
+        if (balance == 0) {
+            textView.setText(String
+                    .format(textView.getContext().getString(R.string.vnd),
+                            textView.getContext().getString(R.string.str_default_price_zero)));
+        } else {
+            DecimalFormatSymbols symbol = DecimalFormatSymbols.getInstance(Locale.getDefault());
+            DecimalFormat formatter = new DecimalFormat("#,###,###", symbol);
+            textView.setText(String
+                    .format(textView.getContext().getString(R.string.vnd),
+                            formatter.format(balance)));
         }
     }
 }

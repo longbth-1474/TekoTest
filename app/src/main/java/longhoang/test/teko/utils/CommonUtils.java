@@ -15,6 +15,8 @@ import com.bumptech.glide.request.target.BitmapImageViewTarget;
 import java.io.IOException;
 import java.io.InputStream;
 import java.text.DateFormat;
+import java.text.DecimalFormat;
+import java.text.DecimalFormatSymbols;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -26,6 +28,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.widget.AppCompatImageView;
 import androidx.core.graphics.drawable.RoundedBitmapDrawable;
 import androidx.core.graphics.drawable.RoundedBitmapDrawableFactory;
+
 import longhoang.test.teko.R;
 
 /**
@@ -50,7 +53,7 @@ public class CommonUtils {
     }
 
     public static String loadJSONFromAsset(Context context, String jsonFileName)
-        throws IOException {
+            throws IOException {
         AssetManager manager = context.getAssets();
         InputStream is = manager.open(jsonFileName);
         int size = is.available();
@@ -82,14 +85,13 @@ public class CommonUtils {
     }
 
     public static BitmapImageViewTarget getRoundedImageTarget(@NonNull final Context context,
-                                                              @NonNull
-                                                              final AppCompatImageView imageView,
+                                                              @NonNull final AppCompatImageView imageView,
                                                               final float radius) {
         return new BitmapImageViewTarget(imageView) {
             @Override
             protected void setResource(final Bitmap resource) {
                 RoundedBitmapDrawable circularBitmapDrawable =
-                    RoundedBitmapDrawableFactory.create(context.getResources(), resource);
+                        RoundedBitmapDrawableFactory.create(context.getResources(), resource);
                 circularBitmapDrawable.setCornerRadius(radius);
                 imageView.setImageDrawable(circularBitmapDrawable);
             }
@@ -99,13 +101,23 @@ public class CommonUtils {
     public static String feedDatimeFormat(String time) {
         try {
             DateFormat dateFormat =
-                new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSXXX", Locale.getDefault());
+                    new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSXXX", Locale.getDefault());
             Date date = dateFormat.parse(time);
             DateFormat formatter = new SimpleDateFormat("yyyy/MM/dd HH:mm", Locale.getDefault());
             return formatter.format(date);
         } catch (ParseException e) {
             e.printStackTrace();
             return "";
+        }
+    }
+
+    public static String convertPrice(long price) {
+        if (price == 0) {
+            return String.format("%s vnd", "0");
+        } else {
+            DecimalFormatSymbols symbol = DecimalFormatSymbols.getInstance(Locale.getDefault());
+            DecimalFormat formatter = new DecimalFormat("#,###,###", symbol);
+            return String.format("%s vnd", formatter.format(price));
         }
     }
 }

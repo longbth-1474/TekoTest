@@ -10,6 +10,7 @@ import javax.inject.Singleton;
 import io.reactivex.Single;
 import longhoang.test.teko.data.local.db.TekoDBHelper;
 import longhoang.test.teko.data.model.api.ProductSearch;
+import longhoang.test.teko.data.model.api.detail.ProductDetail;
 import longhoang.test.teko.data.remote.TekoApiHelper;
 import longhoang.test.teko.utils.ConfigManager;
 
@@ -35,5 +36,10 @@ public class TekoRepositoryImpl implements TekoRepository {
     @Override
     public Single<ProductSearch> getSearchProduct(String channel, String visitorId, String q, String terminal) {
         return mApiHelper.getSearchProduct(channel, visitorId, q, terminal);
+    }
+
+    @Override
+    public Single<ProductDetail> getDetailProduct(String sku) {
+        return mApiHelper.getDetailProduct(sku);
     }
 }
