@@ -20,9 +20,6 @@ import java.lang.annotation.RetentionPolicy;
 
 import javax.inject.Qualifier;
 
-/**
- * Created by Cong Nguyen on 2/18/19.
- */
 @Qualifier
 @Retention(RetentionPolicy.RUNTIME)
 public @interface ApiInfo {

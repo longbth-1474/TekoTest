@@ -24,11 +24,6 @@ import java.util.List;
 import androidx.annotation.LayoutRes;
 import androidx.databinding.DataBindingUtil;
 
-/**
- * Super simple single-type adapter using data-binding.
- *
- * @author markzhai on 16/8/22
- */
 public class SingleTypeAdapter<T> extends BaseViewAdapter<T> {
     protected int mLayoutRes;
 

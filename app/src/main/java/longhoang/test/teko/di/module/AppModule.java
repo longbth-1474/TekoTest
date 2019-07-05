@@ -26,9 +26,6 @@ import longhoang.test.teko.utils.ConfigManager;
 import longhoang.test.teko.utils.rx.AppSchedulerProvider;
 import longhoang.test.teko.utils.rx.SchedulerProvider;
 
-/**
- * Created by Cong Nguyen on 2/18/19.
- */
 @Module(includes = {ViewModelModule.class})
 public class AppModule {
     @Provides

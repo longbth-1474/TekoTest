@@ -11,8 +11,6 @@ import java.util.List;
 
 import longhoang.test.teko.R;
 import longhoang.test.teko.core.BaseFragment;
-import longhoang.test.teko.core.adapter.recycleview.BaseViewAdapter;
-import longhoang.test.teko.core.adapter.recycleview.BindingViewHolder;
 import longhoang.test.teko.core.adapter.recycleview.SingleTypeAdapter;
 import longhoang.test.teko.data.model.api.detail.AttributeGroup;
 import longhoang.test.teko.databinding.FragmentInfoBinding;

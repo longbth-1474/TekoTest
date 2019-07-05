@@ -127,8 +127,7 @@ public class DetailProductFragment extends BaseFragment<FragmentDetailProductBin
 
     @Override
     public void onClickBack() {
-        if (getFragmentManager() == null) return;
-        getFragmentManager().popBackStack();
+        popFragment(this);
     }
 
     @Override

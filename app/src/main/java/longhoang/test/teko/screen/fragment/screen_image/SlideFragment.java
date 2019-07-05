@@ -111,7 +111,6 @@ public class SlideFragment extends BaseFragment<FragmentSlideBinding, SlideViewM
 
     @Override
     public void onClickBack() {
-        if (getFragmentManager() == null) return;
-        getFragmentManager().popBackStack();
+        popFragment(this);
     }
 }

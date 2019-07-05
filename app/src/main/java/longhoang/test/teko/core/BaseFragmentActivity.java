@@ -15,20 +15,17 @@
  */
 package longhoang.test.teko.core;
 
-import javax.inject.Inject;
-
 import androidx.databinding.ViewDataBinding;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
+
+import javax.inject.Inject;
+
 import dagger.android.AndroidInjector;
 import dagger.android.DispatchingAndroidInjector;
 import dagger.android.support.HasSupportFragmentInjector;
 
-/**
- * Created by Cong Nguyen on 2/18/19.
- */
 public abstract class BaseFragmentActivity<T extends ViewDataBinding, V extends BaseViewModel>
-    extends BaseActivity<T, V> implements HasSupportFragmentInjector {
+        extends BaseActivity<T, V> implements HasSupportFragmentInjector {
     @Inject
     DispatchingAndroidInjector<Fragment> dispatchingAndroidInjector;
 
@@ -39,34 +36,10 @@ public abstract class BaseFragmentActivity<T extends ViewDataBinding, V extends 
 
     @Override
     public void onBackPressed() {
-        onBack(getSupportFragmentManager());
-    }
-
-    private void onBack(FragmentManager frgm) {
-        for (Fragment frg : frgm.getFragments()) {
-            if (frg.isVisible()) {
-                if (frg.getChildFragmentManager().getFragments().size() > 0) {
-                    onBack(frg.getChildFragmentManager());
-                    return;
-                } else {
-                    if (frg.getChildFragmentManager().getBackStackEntryCount() > 0) {
-                        frg.getChildFragmentManager().popBackStackImmediate();
-                        return;
-                    } else {
-                        if (frgm.getBackStackEntryCount() > 1) {
-                            frgm.popBackStack();
-                            return;
-                        } else {
-                            onBack();
-                            return;
-                        }
-                    }
-                }
-            }
-        }
         onBack();
     }
-    public void onBack(){
+
+    public void onBack() {
         super.onBackPressed();
     }
 }

@@ -9,9 +9,6 @@ import java.lang.annotation.Target;
 import androidx.lifecycle.ViewModel;
 import dagger.MapKey;
 
-/**
- * Created by Cong Nguyen on 2/18/19.
- */
 @Documented
 @Target({ElementType.METHOD})
 @Retention(RetentionPolicy.RUNTIME)

@@ -46,9 +46,6 @@ import longhoang.test.teko.utils.CommonUtils;
 import longhoang.test.teko.utils.NetworkUtils;
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
-/**
- * Created by Cong Nguyen on 2/18/19.
- */
 public abstract class BaseActivity<T extends ViewDataBinding, V extends BaseViewModel>
     extends AppCompatActivity
     implements BaseFragment.Callback, Injectable {
