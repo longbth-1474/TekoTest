@@ -17,5 +17,5 @@ public class AppConstants {
     public static final String QUERY = "q";
     public static final String TERMINAL = "terminal";
     public static final long TIMEOUT = 60;
-    public static final String SKU = "sku";
+    public static final String SKU = "product_sku";
 }

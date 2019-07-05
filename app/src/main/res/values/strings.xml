@@ -6,4 +6,6 @@
     <string name="hint_search">Nhập tên, mã sản phẩm</string>
     <string name="sold_out">Tạm hết hàng</string>
     <string name="default_discount">-20%</string>
+    <string name="vnd">%s vnd</string>
+    <string name="str_default_price_zero">0</string>
 </resources>

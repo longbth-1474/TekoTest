@@ -1,12 +1,12 @@
 <component name="libraryTable">
   <library name="Gradle: com.amitshekhar.android:rx2-android-networking:1.0.2@aar">
     <CLASSES>
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/rx2-android-networking-1.0.2.aar/0898b65c29943cf0d06b6e33b610c4ac/res" />
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/rx2-android-networking-1.0.2.aar/0898b65c29943cf0d06b6e33b610c4ac/jars/classes.jar!/" />
+      <root url="file://$PROJECT_DIR$/../.gradle/caches/transforms-1/files-1.1/rx2-android-networking-1.0.2.aar/448c4e9c5adb2c9a80c1e513fa02f086/res" />
+      <root url="jar://$PROJECT_DIR$/../.gradle/caches/transforms-1/files-1.1/rx2-android-networking-1.0.2.aar/448c4e9c5adb2c9a80c1e513fa02f086/jars/classes.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES>
-      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.amitshekhar.android/rx2-android-networking/1.0.2/583b2f027caa94289133c750fdf392e0451a39aa/rx2-android-networking-1.0.2-sources.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../.gradle/caches/modules-2/files-2.1/com.amitshekhar.android/rx2-android-networking/1.0.2/583b2f027caa94289133c750fdf392e0451a39aa/rx2-android-networking-1.0.2-sources.jar!/" />
     </SOURCES>
   </library>
 </component>

@@ -1,10 +1,11 @@
 package longhoang.test.teko.screen.fragment.screen_search;
 
+import androidx.lifecycle.MutableLiveData;
+
 import java.util.List;
 
 import javax.inject.Inject;
 
-import androidx.lifecycle.MutableLiveData;
 import longhoang.test.teko.core.BaseViewModel;
 import longhoang.test.teko.data.model.api.Product;
 
@@ -16,7 +17,7 @@ public class SearchViewModel extends BaseViewModel {
     public SearchViewModel() {
     }
 
-    public void fetchProductList() {
+    public void fetchProductList(String query) {
         getCompositeDisposable().add(repository
                 .getSearchProduct("pv_online", "", "", "cp01")
                 .subscribeOn(schedulerProvider.io())
@@ -28,7 +29,7 @@ public class SearchViewModel extends BaseViewModel {
                                 mProductLiveData.postValue(productSearch.getResult().getProducts());
                             }
                         },
-                        throwable -> showToast(throwable.getLocalizedMessage()))
+                        throwable -> showToast("Không có kết quả tìm kiếm"))
         );
     }
 }
