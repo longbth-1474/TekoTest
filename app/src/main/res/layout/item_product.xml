@@ -55,9 +55,10 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/dp_4"
             android:layout_marginEnd="@dimen/dp_19"
-            android:text="@{viewModel.price.sellPrice}"
-            android:textColor="#ea341f"
+            android:text='@{viewModel.price.sellPrice ?? "Chưa có báo giá"}'
+            android:textColor="@color/color_tomato"
             android:textSize="@dimen/sp_15"
+            android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="@id/name_product"
             app:layout_constraintTop_toBottomOf="@id/name_product" />
@@ -67,7 +68,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/dp_2"
-            android:text="@{viewModel.price.supplierSalePrice}"
+            android:text='@{viewModel.price.supplierSalePrice ?? ""}'
             android:textSize="@dimen/sp_12"
             app:layout_constraintStart_toStartOf="@id/name_product"
             app:layout_constraintTop_toBottomOf="@id/new_price_product" />

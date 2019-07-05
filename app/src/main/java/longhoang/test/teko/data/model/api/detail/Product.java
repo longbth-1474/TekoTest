@@ -12,7 +12,6 @@ import longhoang.test.teko.data.model.api.Image;
 import longhoang.test.teko.data.model.api.Price;
 import longhoang.test.teko.data.model.api.ProductLine;
 import longhoang.test.teko.data.model.api.Rating;
-import longhoang.test.teko.data.model.api.SeoInfo;
 import longhoang.test.teko.data.model.api.Status;
 
 public class Product {

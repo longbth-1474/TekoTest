@@ -32,7 +32,7 @@
     <color name="color_cerulean">#108CCF</color>
     <color name="color_tropical_blue">#C6E7F6</color>
     <color name="color_wild_sand">#F5F5F5</color>
-    <color name="color_gray_50">#806D6D6D</color>
+    <color name="color_gray_50">#6D6D6D</color>
     <color name="color_black_30">#4D000000</color>
     <color name="color_white_60">#9AFFFFFF</color>
     <color name="color_shadows">#29000000</color>
@@ -40,10 +40,10 @@
     <color name="color_material_500">#ECF0F2</color>
     <color name="color_alto_145">#D1D1D1</color>
     <color name="color_alabastersolid">#FAFAFA</color>
-
     <color name="color_underline">#eeeeee</color>
     <color name="color_bg">#eeeeee</color>
     <color name="color_text">#8f9598</color>
     <color name="color_toolbar_search">#df2020</color>
     <color name="color_tomato">#ea341f</color>
+    <color name="color_deep_sky_blue">#1e75f6</color>
 </resources>
