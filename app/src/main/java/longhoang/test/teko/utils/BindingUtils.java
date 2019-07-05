@@ -2,6 +2,8 @@ package longhoang.test.teko.utils;
 
 import android.content.Context;
 import android.graphics.Color;
+import android.os.Build;
+import android.text.Html;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
@@ -25,7 +27,7 @@ public final class BindingUtils {
     @BindingAdapter("imageUrl")
     public static void setImageUrl(ImageView imageView, String url) {
         Context context = imageView.getContext();
-        Glide.with(context).load(url).into(imageView);
+        Glide.with(context).load(url).placeholder(R.drawable.default_image).dontAnimate().into(imageView);
     }
 
     @BindingAdapter("imageProduct")
@@ -50,6 +52,15 @@ public final class BindingUtils {
     @BindingAdapter("errorText")
     public static void setErrorMessage(TextInputLayout view, String errorMessage) {
         view.setError(errorMessage);
+    }
+
+    @BindingAdapter("htmlText")
+    public static void setErrorMessage(TextView view, String htmlText) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+            view.setText(Html.fromHtml(htmlText, Html.FROM_HTML_MODE_COMPACT));
+        } else {
+            view.setText(Html.fromHtml(htmlText));
+        }
     }
 
     @BindingAdapter("backgroundResource")

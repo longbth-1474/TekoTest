@@ -84,6 +84,7 @@ public class SearchFragment extends BaseFragment<FragmentSearchBinding, SearchVi
 
     @Override
     public void onClickProductListener(Product product) {
+        hideKeyboard();
         mMainActivity.addFragment(DetailProductFragment.newInstance(product.getSku()));
     }
 
@@ -98,12 +99,7 @@ public class SearchFragment extends BaseFragment<FragmentSearchBinding, SearchVi
             mCountDownTimer.cancel();
         }
         mSearchKey = getViewDataBinding().editSearch.toString().trim();
-        if (!mSearchKey.isEmpty()) {
-//            getViewModel().showHistory.postValue(false);
-            mCountDownTimer.start();
-        } else {
-//            getViewModel().showHistory.postValue(true);
-        }
+        if (!mSearchKey.isEmpty()) mCountDownTimer.start();
     }
 
     private CountDownTimer mCountDownTimer = new CountDownTimer(WAITING_TIME, WAITING_TIME) {

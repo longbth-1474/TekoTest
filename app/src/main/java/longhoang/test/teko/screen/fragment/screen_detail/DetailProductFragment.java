@@ -1,5 +1,6 @@
 package longhoang.test.teko.screen.fragment.screen_detail;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.view.View;
 
@@ -9,14 +10,22 @@ import java.util.List;
 
 import longhoang.test.teko.R;
 import longhoang.test.teko.core.BaseFragment;
+import longhoang.test.teko.core.adapter.recycleview.SingleTypeAdapter;
 import longhoang.test.teko.data.model.api.Image;
+import longhoang.test.teko.data.model.api.detail.ProductDetail;
+import longhoang.test.teko.data.model.api.suggest_item.ItemSuggest;
 import longhoang.test.teko.databinding.FragmentDetailProductBinding;
+import longhoang.test.teko.screen.activity.MainActivity;
+import longhoang.test.teko.screen.fragment.screen_image.SlideFragment;
 import longhoang.test.teko.utils.AppConstants;
 import longhoang.test.teko.utils.CommonUtils;
 
-public class DetailProductFragment extends BaseFragment<FragmentDetailProductBinding, DetailViewModel> implements DetailListener, SlideAdapter.ClickSliderListener {
+public class DetailProductFragment extends BaseFragment<FragmentDetailProductBinding, DetailViewModel>
+        implements DetailListener, SlideAdapter.ClickSliderListener {
 
     private String sku;
+    private MainActivity mainActivity;
+    private SingleTypeAdapter<ItemSuggest> suggestAdapter;
 
     public static DetailProductFragment newInstance(String sku) {
         Bundle args = new Bundle();
@@ -26,6 +35,11 @@ public class DetailProductFragment extends BaseFragment<FragmentDetailProductBin
         return fragment;
     }
 
+    @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+        mainActivity = (MainActivity) context;
+    }
 
     @Override
     public int getLayoutId() {
@@ -40,6 +54,18 @@ public class DetailProductFragment extends BaseFragment<FragmentDetailProductBin
         initData();
         initListener();
         initObserver();
+        initSuggestView();
+    }
+
+    private void initSuggestView() {
+        suggestAdapter = new SingleTypeAdapter<>(getContext(), R.layout.item_suggest);
+        getViewDataBinding().recyclerItemSuggest.setAdapter(suggestAdapter);
+    }
+
+    private void initInfoView(ProductDetail productDetail) {
+        ViewPagerAdapter viewPagerAdapter = new ViewPagerAdapter(getFragmentManager(), productDetail);
+        getViewDataBinding().viewPagerInfo.setAdapter(viewPagerAdapter);
+        getViewDataBinding().tabLayout.setupWithViewPager(getViewDataBinding().viewPagerInfo);
     }
 
     private void initSlideImage(List<Image> images) {
@@ -54,7 +80,10 @@ public class DetailProductFragment extends BaseFragment<FragmentDetailProductBin
                 productDetail -> {
                     getViewDataBinding().setDetailProduct(productDetail);
                     initSlideImage(productDetail.getResult().getProduct().getImages());
+                    initInfoView(productDetail);
                 });
+        getViewModel().suggestList.observe(this, itemSuggests
+                -> suggestAdapter.set(itemSuggests));
     }
 
     private void initListener() {
@@ -63,6 +92,7 @@ public class DetailProductFragment extends BaseFragment<FragmentDetailProductBin
 
     private void initData() {
         getViewModel().fetchDetailProduct(sku);
+        getViewModel().dummyDataSuggest();
     }
 
     @Override
@@ -103,6 +133,6 @@ public class DetailProductFragment extends BaseFragment<FragmentDetailProductBin
 
     @Override
     public void onClickSlider(List<Image> sliders, int position) {
-
+        mainActivity.addFragment(SlideFragment.newInstance(sliders, position));
     }
 }

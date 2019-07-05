@@ -185,7 +185,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/dp_4"
-                        android:text="Mã SP: "
+                        android:text="@string/ma_sp"
                         android:textColor="#8f9598"
                         android:textSize="@dimen/sp_12"
                         app:layout_constraintStart_toStartOf="@id/detail_name_product"
@@ -212,7 +212,7 @@
                         android:paddingTop="@dimen/dp_3"
                         android:paddingEnd="@dimen/dp_8"
                         android:paddingBottom="@dimen/dp_3"
-                        android:text="Tạm hết hàng"
+                        android:text="@string/sold_out"
                         android:textColor="@color/color_text"
                         android:textSize="@dimen/sp_12"
                         android:visibility="@{detailProduct.result.product.status.publish ? View.GONE : View.VISIBLE}"
@@ -241,7 +241,7 @@
                         android:background="@drawable/dotted"
                         android:ellipsize="end"
                         android:maxLines="1"
-                        android:text='@{detailProduct.result.product.price.sellPrice ?? "0 vnd"}'
+                        android:text='@{detailProduct.result.product.price.sellPrice ?? "0 đ"}'
                         android:textColor="@color/color_text"
                         android:textSize="@dimen/sp_12"
                         app:layout_constraintBottom_toBottomOf="@+id/current_price"
@@ -255,11 +255,12 @@
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:id="@+id/layout_info"
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/dp_240"
+                    android:layout_height="wrap_content"
                     android:layout_marginBottom="@dimen/dp_8"
                     android:background="@color/color_white">
 
                     <com.google.android.material.tabs.TabLayout
+                        android:id="@+id/tab_layout"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         app:layout_constraintEnd_toEndOf="parent"
@@ -268,24 +269,15 @@
                         app:tabIndicatorColor="#df2020"
                         app:tabSelectedTextColor="#262829"
                         app:tabTextAppearance="@style/custom_tab"
-                        app:tabTextColor="@color/color_text">
+                        app:tabTextColor="@color/color_text" />
 
-                        <com.google.android.material.tabs.TabItem
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Mô tả sản phẩm" />
-
-                        <com.google.android.material.tabs.TabItem
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Thông số kỹ thuật" />
-
-                        <com.google.android.material.tabs.TabItem
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="So sánh giá" />
-
-                    </com.google.android.material.tabs.TabLayout>
+                    <longhoang.test.teko.utils.custom_view.HeightWrappingViewPager
+                        android:id="@+id/view_pager_info"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/tab_layout" />
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -299,13 +291,15 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_margin="@dimen/dp_12"
-                        android:text="Sản phẩm cùng loại"
+                        android:text="@string/item_suggest"
                         android:textColor="@color/color_text"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
 
                     <androidx.recyclerview.widget.RecyclerView
+                        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                        android:orientation="horizontal"
                         android:id="@+id/recycler_item_suggest"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"

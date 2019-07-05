@@ -1,4 +1,4 @@
-package longhoang.test.teko.data.model.api;
+package longhoang.test.teko.data.model.api.detail;
 
 import android.os.Parcel;
 import android.os.Parcelable;
@@ -15,12 +15,12 @@ public class SeoInfo implements Parcelable {
     @SerializedName("shortDescription")
     private String shortDescription;
     @SerializedName("description")
-    private Object description;
+    private String description;
 
     public SeoInfo() {
     }
 
-    public SeoInfo(Object metaKeyword, Object metaTitle, Object metaDescription, String shortDescription, Object description) {
+    public SeoInfo(Object metaKeyword, Object metaTitle, Object metaDescription, String shortDescription, String description) {
         this.metaKeyword = metaKeyword;
         this.metaTitle = metaTitle;
         this.metaDescription = metaDescription;
@@ -28,8 +28,9 @@ public class SeoInfo implements Parcelable {
         this.description = description;
     }
 
-    private SeoInfo(Parcel in) {
+    protected SeoInfo(Parcel in) {
         shortDescription = in.readString();
+        description = in.readString();
     }
 
     public static final Creator<SeoInfo> CREATOR = new Creator<SeoInfo>() {
@@ -76,11 +77,11 @@ public class SeoInfo implements Parcelable {
         this.shortDescription = shortDescription;
     }
 
-    public Object getDescription() {
+    public String getDescription() {
         return description;
     }
 
-    public void setDescription(Object description) {
+    public void setDescription(String description) {
         this.description = description;
     }
 
@@ -92,5 +93,6 @@ public class SeoInfo implements Parcelable {
     @Override
     public void writeToParcel(Parcel parcel, int i) {
         parcel.writeString(shortDescription);
+        parcel.writeString(description);
     }
 }
