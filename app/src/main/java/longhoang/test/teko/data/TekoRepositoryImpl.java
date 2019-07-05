@@ -14,7 +14,6 @@ import longhoang.test.teko.data.model.api.detail.ProductDetail;
 import longhoang.test.teko.data.remote.TekoApiHelper;
 import longhoang.test.teko.utils.ConfigManager;
 
-
 @Singleton
 public class TekoRepositoryImpl implements TekoRepository {
     private final Gson mGson;

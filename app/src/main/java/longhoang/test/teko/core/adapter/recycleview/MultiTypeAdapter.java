@@ -26,11 +26,6 @@ import java.util.Map;
 import androidx.annotation.LayoutRes;
 import androidx.databinding.DataBindingUtil;
 
-/**
- * Super simple multi-type adapter using data-binding.
- *
- * @author markzhai on 16/8/23
- */
 public class MultiTypeAdapter extends BaseViewAdapter<Object> {
     protected ArrayList<Integer> mCollectionViewType;
     private ArrayMap<Integer, Integer> mItemTypeToLayoutMap = new ArrayMap<>();

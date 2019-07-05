@@ -5,9 +5,6 @@ import dagger.Module;
 import dagger.android.ContributesAndroidInjector;
 import longhoang.test.teko.screen.activity.MainActivity;
 
-/**
- * Created by Cong Nguyen on 2/18/19.
- */
 @Module
 public abstract class ActivityBuilder {
     @ContributesAndroidInjector(modules = {FragmentBuilder.class})

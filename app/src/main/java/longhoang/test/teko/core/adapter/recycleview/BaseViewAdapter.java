@@ -24,11 +24,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import longhoang.test.teko.BR;
 
-/**
- * Base Data Binding RecyclerView Adapter.
- *
- * @author markzhai on 16/8/25
- */
 public abstract class BaseViewAdapter<T> extends RecyclerView.Adapter<BindingViewHolder> {
     protected final LayoutInflater mLayoutInflater;
     protected List<T> mCollection;

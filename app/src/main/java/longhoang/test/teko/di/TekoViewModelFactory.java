@@ -8,9 +8,6 @@ import javax.inject.Provider;
 import androidx.lifecycle.ViewModel;
 import androidx.lifecycle.ViewModelProvider;
 
-/**
- * Created by Cong Nguyen on 2/18/19.
- */
 public class TekoViewModelFactory implements ViewModelProvider.Factory {
     private final Map<Class<? extends ViewModel>, Provider<ViewModel>> creators;
 

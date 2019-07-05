@@ -24,9 +24,6 @@ import io.reactivex.disposables.CompositeDisposable;
 import longhoang.test.teko.data.TekoRepository;
 import longhoang.test.teko.utils.rx.SchedulerProvider;
 
-/**
- * Created by Cong Nguyen on 2/18/19.
- */
 public abstract class BaseViewModel extends ViewModel {
     public MutableLiveData<String> toastMessages = new MutableLiveData();
     public MutableLiveData<Boolean> isLoading = new MutableLiveData();

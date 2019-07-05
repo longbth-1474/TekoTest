@@ -19,7 +19,6 @@ import androidx.room.Database;
 import androidx.room.RoomDatabase;
 import longhoang.test.teko.data.model.db.User;
 
-//@Database(entities = {User.class, HistorySearch.class}, version = 1, exportSchema = false)
 @Database(entities = {User.class}, version = 1, exportSchema = false)
 public abstract class TekoDatabase extends RoomDatabase {
 

@@ -1,6 +1,5 @@
 package longhoang.test.teko.screen.fragment.screen_detail;
 
-import android.view.ScaleGestureDetector;
 import android.view.View;
 import android.view.ViewGroup;
 
@@ -18,8 +17,6 @@ import longhoang.test.teko.data.model.api.Image;
 public class SlideAdapter extends PagerAdapter {
     private List<Image> sliders;
     private ClickSliderListener mClickSliderListener;
-    private ScaleGestureDetector mScaleGestureDetector;
-    private float mScaleFactor = 1.0f;
 
     public SlideAdapter(List<Image> sliders, ClickSliderListener clickSliderListener) {
         this.sliders = sliders;

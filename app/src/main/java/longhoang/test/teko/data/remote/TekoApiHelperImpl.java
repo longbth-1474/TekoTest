@@ -10,9 +10,6 @@ import longhoang.test.teko.data.model.api.ProductSearch;
 import longhoang.test.teko.data.model.api.detail.ProductDetail;
 import longhoang.test.teko.utils.AppConstants;
 
-/**
- * Created by Cong Nguyen on 2/18/19.
- */
 @Singleton
 public class TekoApiHelperImpl implements TekoApiHelper {
     @Inject
