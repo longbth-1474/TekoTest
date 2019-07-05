@@ -17,10 +17,12 @@ public class SearchViewModel extends BaseViewModel {
 
     MutableLiveData<List<Product>> mProductLiveData = new MutableLiveData<>();
     private TekoTestApp tekoTestApp;
+    public MutableLiveData<Boolean> noData = new MutableLiveData<>();
 
     @Inject
     public SearchViewModel(Application application) {
         tekoTestApp = (TekoTestApp) application;
+        noData.postValue(true);
     }
 
     void fetchProductList(String query) {
@@ -32,6 +34,7 @@ public class SearchViewModel extends BaseViewModel {
                 .doAfterTerminate(() -> showProgressDialog(false))
                 .subscribe(productSearch -> {
                             if (productSearch.getResult().getProducts().size() > 0) {
+                                noData.postValue(false);
                                 mProductLiveData.postValue(productSearch.getResult().getProducts());
                             }
                         },

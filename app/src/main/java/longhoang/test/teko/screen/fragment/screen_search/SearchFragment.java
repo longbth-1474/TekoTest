@@ -11,6 +11,8 @@ import android.view.inputmethod.EditorInfo;
 
 import androidx.annotation.NonNull;
 
+import com.google.android.material.snackbar.Snackbar;
+
 import longhoang.test.teko.R;
 import longhoang.test.teko.core.BaseFragment;
 import longhoang.test.teko.core.adapter.recycleview.SingleTypeAdapter;
@@ -47,6 +49,7 @@ public class SearchFragment extends BaseFragment<FragmentSearchBinding, SearchVi
     @Override
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        showSnackBar(view, isNetworkConnected());
         initView();
         initData();
         initListener();
@@ -115,5 +118,17 @@ public class SearchFragment extends BaseFragment<FragmentSearchBinding, SearchVi
     @Override
     public void afterTextChanged(Editable editable) {
 
+    }
+
+    private void showSnackBar(View view, boolean networkConnected) {
+        String message;
+        if (!networkConnected) {
+            message = getString(R.string.no_internet);
+            View parentLayout = view.findViewById(android.R.id.content);
+            Snackbar.make(parentLayout, message, Snackbar.LENGTH_INDEFINITE)
+                    .setAction("Reload", viewSnack -> getViewModel().fetchProductList(""))
+                    .setActionTextColor(getResources().getColor(android.R.color.holo_red_light))
+                    .show();
+        }
     }
 }
