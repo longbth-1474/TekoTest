@@ -5,9 +5,6 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
 
-/**
- * Created by Cong Nguyen on 2/18/19.
- */
 public class ConfigManager {
     Context activity;
     private SharedPreferences pref;

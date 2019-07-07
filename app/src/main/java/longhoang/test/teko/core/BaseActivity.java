@@ -21,13 +21,10 @@ import android.content.Context;
 import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.Bundle;
+import android.util.AttributeSet;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Toast;
-
-import java.lang.reflect.ParameterizedType;
-
-import javax.inject.Inject;
 
 import androidx.annotation.LayoutRes;
 import androidx.annotation.Nullable;
@@ -40,18 +37,20 @@ import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.lifecycle.ViewModelProviders;
+
+import java.lang.reflect.ParameterizedType;
+
+import javax.inject.Inject;
+
 import longhoang.test.teko.BR;
 import longhoang.test.teko.di.Injectable;
 import longhoang.test.teko.utils.CommonUtils;
 import longhoang.test.teko.utils.NetworkUtils;
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
-/**
- * Created by Cong Nguyen on 2/18/19.
- */
 public abstract class BaseActivity<T extends ViewDataBinding, V extends BaseViewModel>
-    extends AppCompatActivity
-    implements BaseFragment.Callback, Injectable {
+        extends AppCompatActivity
+        implements BaseFragment.Callback, Injectable {
     private final Observer<String> showToastObs = msg -> {
         // Update the UI, in this case, a TextView.
         Toast.makeText(BaseActivity.this, msg, Toast.LENGTH_SHORT).show();
@@ -116,6 +115,11 @@ public abstract class BaseActivity<T extends ViewDataBinding, V extends BaseView
         performDataBinding();
     }
 
+    @Override
+    public View onCreateView(View parent, String name, Context context, AttributeSet attrs) {
+        return super.onCreateView(parent, name, context, attrs);
+    }
+
     public T getViewDataBinding() {
         return mViewDataBinding;
     }
@@ -123,14 +127,14 @@ public abstract class BaseActivity<T extends ViewDataBinding, V extends BaseView
     @TargetApi(Build.VERSION_CODES.M)
     public boolean hasPermission(String permission) {
         return Build.VERSION.SDK_INT < Build.VERSION_CODES.M ||
-            checkSelfPermission(permission) == PackageManager.PERMISSION_GRANTED;
+                checkSelfPermission(permission) == PackageManager.PERMISSION_GRANTED;
     }
 
     public void hideKeyboard() {
         View view = this.getCurrentFocus();
         if (view != null) {
             InputMethodManager imm =
-                (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+                    (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
             if (imm != null) {
                 imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
             }
@@ -147,10 +151,6 @@ public abstract class BaseActivity<T extends ViewDataBinding, V extends BaseView
         return NetworkUtils.isNetworkConnected(getApplicationContext());
     }
 
-    //    public void openActivityOnTokenExpire() {
-//        startActivity(LoginActivity.newIntent(this));
-//        finish();
-//    }
     @TargetApi(Build.VERSION_CODES.M)
     public void requestPermissionsSafely(String[] permissions, int requestCode) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
@@ -168,15 +168,15 @@ public abstract class BaseActivity<T extends ViewDataBinding, V extends BaseView
         String name;
         if (Build.VERSION.SDK_INT > Build.VERSION_CODES.O_MR1) {
             name =
-                ((ParameterizedType) getClass().getGenericSuperclass()).getActualTypeArguments()[1]
-                    .getTypeName();
+                    ((ParameterizedType) getClass().getGenericSuperclass()).getActualTypeArguments()[1]
+                            .getTypeName();
         } else {
             name = ((ParameterizedType) getClass().getGenericSuperclass())
-                .getActualTypeArguments()[1].toString().replace("class ", "");
+                    .getActualTypeArguments()[1].toString().replace("class ", "");
         }
         try {
             this.mViewModel =
-                ViewModelProviders.of(this, viewModelFactory).get((Class<V>) Class.forName(name));
+                    ViewModelProviders.of(this, viewModelFactory).get((Class<V>) Class.forName(name));
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         }
@@ -234,7 +234,7 @@ public abstract class BaseActivity<T extends ViewDataBinding, V extends BaseView
 
     public void addFragment(Fragment frg, int layoutId, String TAG) {
         getSupportFragmentManager().beginTransaction().add(layoutId, frg, TAG).addToBackStack(TAG)
-            .commit();
+                .commit();
     }
 }
 

@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="longhoang.test.teko.data.model.api.Product" />
+
+        <variable
+            name="listener"
+            type="longhoang.test.teko.screen.fragment.screen_search.SearchNavigator" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/dp_4"
+        android:background="@android:color/white"
+        android:onClick="@{()->listener.onClickProductListener(viewModel)}"
+        android:orientation="vertical">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/image_product"
+            android:layout_width="@dimen/dp_80"
+            android:layout_height="@dimen/dp_80"
+            android:layout_margin="@dimen/dp_12"
+            android:scaleType="fitXY"
+            android:src="@drawable/default_image"
+            app:imageProduct="@{viewModel}"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/name_product"
+            android:layout_width="@dimen/dp_0"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp_12"
+            android:layout_marginEnd="@dimen/dp_19"
+            android:ellipsize="end"
+            android:maxLines="2"
+            android:text="@{viewModel.displayName}"
+            android:textColor="#262829"
+            android:textSize="@dimen/sp_14"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/image_product"
+            app:layout_constraintTop_toTopOf="@id/image_product" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/new_price_product"
+            android:layout_width="@dimen/dp_0"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_4"
+            android:layout_marginEnd="@dimen/dp_19"
+            android:text='@{viewModel.price.sellPrice ?? "Chưa có báo giá"}'
+            android:textColor="@color/color_tomato"
+            android:textSize="@dimen/sp_15"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@id/name_product"
+            app:layout_constraintTop_toBottomOf="@id/name_product" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/old_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_2"
+            android:text='@{viewModel.price.supplierSalePrice ?? ""}'
+            android:textSize="@dimen/sp_12"
+            app:layout_constraintStart_toStartOf="@id/name_product"
+            app:layout_constraintTop_toBottomOf="@id/new_price_product" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tag_sale"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/ic_label_black_24dp"
+            android:gravity="center"
+            android:text="@string/default_discount"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/sp_10"
+            app:layout_constraintBottom_toBottomOf="@id/old_price"
+            app:layout_constraintStart_toEndOf="@id/old_price"
+            app:layout_constraintTop_toTopOf="@id/old_price" />
+
+        <androidx.constraintlayout.widget.Group
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="@{viewModel.status.publish ? View.VISIBLE:View.GONE}"
+            app:constraint_referenced_ids="old_price,tag_sale" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/custom_status"
+            android:paddingStart="@dimen/dp_8"
+            android:paddingTop="@dimen/dp_3"
+            android:paddingEnd="@dimen/dp_8"
+            android:paddingBottom="@dimen/dp_3"
+            android:text="@string/sold_out"
+            android:textColor="#8f9598"
+            android:textSize="@dimen/sp_12"
+            android:visibility="@{viewModel.status.publish ? View.GONE:View.VISIBLE}"
+            app:layout_constraintStart_toStartOf="@id/old_price"
+            app:layout_constraintTop_toBottomOf="@id/new_price_product" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

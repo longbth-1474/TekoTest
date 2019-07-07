@@ -1,4 +1,4 @@
-package longhoang.test.teko;
+package longhoang.test.teko.screen.activity;
 
 import javax.inject.Inject;
 

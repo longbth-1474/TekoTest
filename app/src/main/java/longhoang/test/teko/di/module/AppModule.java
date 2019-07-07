@@ -11,7 +11,6 @@ import javax.inject.Singleton;
 import androidx.room.Room;
 import dagger.Module;
 import dagger.Provides;
-import longhoang.test.teko.R;
 import longhoang.test.teko.data.TekoRepository;
 import longhoang.test.teko.data.TekoRepositoryImpl;
 import longhoang.test.teko.data.local.db.TekoDBHelper;
@@ -26,11 +25,7 @@ import longhoang.test.teko.utils.AppConstants;
 import longhoang.test.teko.utils.ConfigManager;
 import longhoang.test.teko.utils.rx.AppSchedulerProvider;
 import longhoang.test.teko.utils.rx.SchedulerProvider;
-import uk.co.chrisjenx.calligraphy.CalligraphyConfig;
 
-/**
- * Created by Cong Nguyen on 2/18/19.
- */
 @Module(includes = {ViewModelModule.class})
 public class AppModule {
     @Provides
@@ -72,14 +67,14 @@ public class AppModule {
             .build();
     }
 
-    @Provides
-    @Singleton
-    CalligraphyConfig provideCalligraphyDefaultConfig() {
-        return new CalligraphyConfig.Builder()
-                .setDefaultFontPath("fonts/source-sans-pro/SourceSansPro-Regular.ttf")
-                .setFontAttrId(R.attr.fontPath)
-                .build();
-    }
+//    @Provides
+//    @Singleton
+//    CalligraphyConfig provideCalligraphyDefaultConfig() {
+//        return new CalligraphyConfig.Builder()
+//                .setDefaultFontPath("fonts/source-sans-pro/SourceSansPro-Regular.ttf")
+//                .setFontAttrId(R.attr.fontPath)
+//                .build();
+//    }
 
     @Provides
     @Singleton

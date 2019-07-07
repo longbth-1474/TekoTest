@@ -11,8 +11,6 @@ import okhttp3.Request;
 import okhttp3.Response;
 
 public class TokenInterceptor implements Interceptor {
-    public static final String AUTHORIZATION = "Authorization";
-    public static final String BEARER = "Bearer ";
     @Inject
     ConfigManager mConfigManager;
 

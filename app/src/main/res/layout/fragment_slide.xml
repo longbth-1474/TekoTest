@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="longhoang.test.teko.screen.fragment.screen_image.SlideViewModel" />
+
+        <variable
+            name="listener"
+            type="longhoang.test.teko.screen.fragment.screen_image.SlideListener" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/color_gray_50"
+        android:clickable="true"
+        android:focusable="true"
+        tools:context=".screen.phone.detail_product.SliderImageFragment">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/ic_close"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:onClick="@{()->listener.onClickBack()}"
+            android:padding="@dimen/dp_16"
+            android:src="@drawable/ic_keyboard_arrow_left_black_24dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <longhoang.test.teko.utils.custom_view.LoopViewPager
+            android:id="@+id/viewpager"
+            android:layout_width="@dimen/dp_0"
+            android:layout_height="@dimen/dp_0"
+            android:layout_margin="@dimen/dp_20"
+            app:layout_constraintBottom_toTopOf="@+id/recycler_image"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ic_close" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler_image"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/dp_10"
+            android:orientation="horizontal"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

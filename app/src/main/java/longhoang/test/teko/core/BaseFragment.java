@@ -40,9 +40,6 @@ import androidx.lifecycle.ViewModelProviders;
 import longhoang.test.teko.BR;
 import longhoang.test.teko.di.Injectable;
 
-/**
- * Created by Cong Nguyen on 2/18/19.
- */
 public abstract class BaseFragment<T extends ViewDataBinding, V extends BaseViewModel>
     extends Fragment implements Injectable {
     @Inject

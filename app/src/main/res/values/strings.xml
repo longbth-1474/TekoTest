@@ -1,3 +1,16 @@
 <resources>
     <string name="app_name">TekoTest</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="hint_search">Nhập tên, mã sản phẩm</string>
+    <string name="default_discount">-20%</string>
+    <string name="vnd">%s đ</string>
+    <string name="str_default_price_zero">0</string>
+    <string name="no_data_search">Không có dữ liệu</string>
+    <string name="item_suggest">Sản phẩm cùng loại</string>
+    <string name="ma_sp">Mã SP:</string>
+    <string name="sold_out">Tạm hết hàng</string>
+    <string name="show_more">Hiển thị nhiều hơn</string>
+    <string name="no_internet">Sorry! Not connected to internet</string>
 </resources>

@@ -18,10 +18,6 @@ package longhoang.test.teko.core.adapter.recycleview;
 import androidx.databinding.ViewDataBinding;
 import androidx.recyclerview.widget.RecyclerView;
 
-/**
- * @author markzhai on 16/3/18
- * @version 1.0.0
- */
 public class BindingViewHolder<T extends ViewDataBinding> extends RecyclerView.ViewHolder {
     protected final T mBinding;
 
