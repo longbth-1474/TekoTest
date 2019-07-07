@@ -12,13 +12,12 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.google.android.material.textfield.TextInputLayout;
 
-import androidx.cardview.widget.CardView;
-import androidx.databinding.BindingAdapter;
-
 import java.text.DecimalFormat;
 import java.text.DecimalFormatSymbols;
 import java.util.Locale;
 
+import androidx.cardview.widget.CardView;
+import androidx.databinding.BindingAdapter;
 import longhoang.test.teko.R;
 import longhoang.test.teko.data.model.api.Product;
 
@@ -32,6 +31,14 @@ public final class BindingUtils {
 
     @BindingAdapter("imageProduct")
     public static void setImageProduct(ImageView imageView, Product product) {
+        if (product.getImages() == null) {
+            Context context = imageView.getContext();
+            Glide.with(context)
+                    .load("https://cdn.zeplin.io/5cff19421786a65d32d70edd/assets/13772DB0-4A99-4C74-A603-B84727E4B752.png")
+                    .placeholder(R.drawable.default_image)
+                    .into(imageView);
+            return;
+        }
         Context context = imageView.getContext();
         Glide.with(context)
                 .load(product.getImages().size() > 0 ? product.getImages().get(0).getUrl() : "https://cdn.zeplin.io/5cff19421786a65d32d70edd/assets/13772DB0-4A99-4C74-A603-B84727E4B752.png")
